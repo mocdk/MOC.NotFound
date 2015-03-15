@@ -1,0 +1,10 @@
+TYPO3:
+  Flow:
+    error:
+      exceptionHandler:
+        renderingGroups:
+          notFoundExceptions:
+            options:
+              templatePathAndFilename: 'resource://MOC.NotFound/Private/Templates/404.html'
+              variables:
+                path: '404'
