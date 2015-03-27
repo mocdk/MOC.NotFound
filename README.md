@@ -9,7 +9,7 @@ Works with TYPO3 Neos 1.0-2.0+
 
 Installation
 ------------
-composer require "moc/notfound" "1.0.*"
+```composer require "moc/notfound" "1.0.*"```
 
 Create a page with the URI segment "404" in the root of your site.
 
