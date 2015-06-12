@@ -53,6 +53,7 @@ class RequestViewHelper extends AbstractViewHelper {
 	/**
 	 * @param string $path
 	 * @return string
+	 * @throws \Exception
 	 */
 	public function render($path = NULL) {
 		/** @var RequestHandler $activeRequestHandler */

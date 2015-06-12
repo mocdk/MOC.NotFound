@@ -1,2 +1,3 @@
-{namespace notFound=MOC\NotFound\ViewHelpers}
-<notFound:request path="{f:if(condition: path, then: path, else: '404')}" />
+{namespace notfound=MOC\NotFound\ViewHelpers}
+<f:format.raw><notfound:request path="{f:if(condition: path, then: path, else: '404')}" /></f:format.raw>
+
