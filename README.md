@@ -1,9 +1,14 @@
 MOC.NotFound
 =============
 
-TYPO3 Neos package that loads a Neos page for displaying a 404 error
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mocdk/MOC.NotFound/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mocdk/MOC.NotFound/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/moc/notfound/v/stable)](https://packagist.org/packages/moc/notfound)
+[![Total Downloads](https://poser.pugx.org/moc/notfound/downloads)](https://packagist.org/packages/moc/notfound)
+[![License](https://poser.pugx.org/moc/notfound/license)](https://packagist.org/packages/moc/notfound)
 
-Works with TYPO3 Neos 1.0-2.0+
+Neos CMS package that loads a normal editable page for displaying a 404 error
+
+Works with Neos CMS 1.0-2.0+
 
 > !!! Not compatible with language dimensions.
 
