@@ -2,7 +2,14 @@
 	"name": "moc/notfound",
 	"type": "typo3-flow-package",
 	"description": "Neos CMS package that loads a normal editable page for displaying a 404 error",
-	"license": "LGPL-3.0+",
+	"keywords": [ "404", "not found", "neos", "flow" ],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Aske Ertmann",
+			"email": "aske@moc.net"
+		}
+	],
 	"require": {
 		"typo3/neos": ">=1.0"
 	},
