@@ -6,6 +6,9 @@ MOC.NotFound
 [![Total Downloads](https://poser.pugx.org/moc/notfound/downloads)](https://packagist.org/packages/moc/notfound)
 [![License](https://poser.pugx.org/moc/notfound/license)](https://packagist.org/packages/moc/notfound)
 
+Introduction
+------------
+
 Neos CMS package that loads a normal editable page for displaying a 404 error
 
 Works with Neos CMS 1.0-2.0+
