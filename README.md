@@ -13,11 +13,11 @@ Neos CMS package that loads a normal editable page for displaying a 404 error
 
 Works with Neos CMS 1.0-2.0+
 
-> !!! Not compatible with language dimensions.
+**!!! Not compatible with language dimensions**
 
 Installation
 ------------
-```composer require "moc/notfound" "1.0.*"```
+```composer require "moc/notfound:~1.0"```
 
 Create a page with the URI segment "404" in the root of your site.
 
