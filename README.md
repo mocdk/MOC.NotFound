@@ -9,17 +9,18 @@ MOC.NotFound
 Introduction
 ------------
 
-Neos CMS package that loads a normal editable page for displaying a 404 error
+Neos CMS package that loads a normal editable page for displaying a 404 error.
 
-Compatible with Neos 1.x-2.x+
+Compatible with Neos 2.x+
 
-**!!! Not compatible with language dimensions**
+Supports multiple content dimensions with URI segments and empty segments for default dimensions.
 
 Installation
 ------------
-```composer require "moc/notfound:~1.0"```
+```composer require "moc/notfound:~2.0"```
 
-Create a page with the URI segment "404" in the root of your site.
+Create a page with the URI segment "404" in the root of your site. If using content dimensions with URI segments,
+ensure a page exists in all contexts or through fallbacks.
 
 Alternatively set the following configuration in ``Settings.yaml``:
 
