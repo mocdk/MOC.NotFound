@@ -25,13 +25,13 @@ ensure a page exists in all contexts or through fallbacks.
 Alternatively set the following configuration in ``Settings.yaml``:
 
 ```yaml
-  TYPO3:
-    Flow:
-      error:
-        exceptionHandler:
-          renderingGroups:
-            notFoundExceptions:
-              options:
-                variables:
-                  path: '404.html' # skip suffix if unset
+TYPO3:
+  Flow:
+    error:
+      exceptionHandler:
+        renderingGroups:
+          notFoundExceptions:
+            options:
+              variables:
+                path: '404.html' # skip suffix if unset
 ```
