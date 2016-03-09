@@ -77,7 +77,10 @@ class RequestViewHelper extends AbstractViewHelper {
 		$httpRequest = Request::create(new Uri($uri));
 		$matchingRoute = $this->router->route($httpRequest);
 		if (!$matchingRoute) {
-			throw new \Exception(sprintf('Uri with path "%s" could not be found.', $parentHttpRequest->getBaseUri() . '/' . $path), 1426446160);
+			$exception = new \Exception(sprintf('Uri with path "%s" could not be found.', $uri), 1426446160);
+			$exceptionHandler = set_exception_handler(null)[0];
+			$exceptionHandler->handleException($exception);
+			exit();
 		}
 		$request = new ActionRequest($parentHttpRequest);
 		foreach ($matchingRoute as $argumentName => $argumentValue) {
