@@ -32,5 +32,5 @@ Alternatively set the following configuration in ``Settings.yaml``:
             notFoundExceptions:
               options:
                 variables:
-                  path: '404'
+                  path: '404.html' # skip suffix if unset
 ```
