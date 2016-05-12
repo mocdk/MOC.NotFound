@@ -37,6 +37,12 @@ class RequestViewHelper extends AbstractViewHelper {
 	protected $router;
 
 	/**
+	 * @Flow\Inject(lazy=false)
+	 * @var \TYPO3\Flow\Security\Context
+	 */
+	protected $securityContext;
+
+	/**
 	 * @Flow\Inject
 	 * @var ConfigurationManager
 	 */
@@ -88,7 +94,10 @@ class RequestViewHelper extends AbstractViewHelper {
 		}
 		$response = new Response($activeRequestHandler->getHttpResponse());
 
-		$this->dispatcher->dispatch($request, $response);
+		$this->securityContext->withoutAuthorizationChecks(function() use ($request, $response) {
+			$this->dispatcher->dispatch($request, $response);
+		});
+
 		return $response->getContent();
 	}
 
