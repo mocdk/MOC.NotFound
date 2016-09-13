@@ -134,7 +134,7 @@ class RequestViewHelper extends AbstractViewHelper {
 				}
 			}
 		} else {
-			if (count($firstUriPartExploded) === count($dimensionPresets)) {
+			if (count($firstUriPartExploded) !== count($dimensionPresets)) {
 				return;
 			}
 			foreach ($dimensionPresets as $dimensionName => $dimensionPreset) {
