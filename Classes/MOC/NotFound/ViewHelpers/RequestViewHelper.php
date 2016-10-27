@@ -135,6 +135,17 @@ class RequestViewHelper extends AbstractViewHelper {
 			}
 		} else {
 			if (count($firstUriPartExploded) !== count($dimensionPresets)) {
+				$dimensionValues = [];
+
+				foreach ($dimensionPresets as $dimensionName => $dimensionPreset) {
+					$dimensionValues[] = $dimensionPreset['default'];
+				}
+				
+				$pathDefaultDimensionsPrefix = implode('_', $dimensionValues);
+				
+				// Add default dimensions in front of the path
+				$path = $pathDefaultDimensionsPrefix . '/' . $path;
+				
 				return;
 			}
 			foreach ($dimensionPresets as $dimensionName => $dimensionPreset) {
