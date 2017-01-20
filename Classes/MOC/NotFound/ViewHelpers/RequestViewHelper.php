@@ -11,7 +11,7 @@ use Neos\Flow\Http\Uri;
 use Neos\Flow\Mvc\ActionRequest;
 use Neos\Flow\Mvc\Routing\Router;
 use TYPO3\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
+use Neos\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
 
 /**
  * Loads the content of a given URL
@@ -49,7 +49,7 @@ class RequestViewHelper extends AbstractViewHelper {
 	protected $configurationManager;
 
 	/**
-	 * @Flow\InjectConfiguration("routing.supportEmptySegmentForDimensions", package="TYPO3.Neos")
+	 * @Flow\InjectConfiguration("routing.supportEmptySegmentForDimensions", package="Neos.Neos")
 	 * @var boolean
 	 */
 	protected $supportEmptySegmentForDimensions;
@@ -108,7 +108,7 @@ class RequestViewHelper extends AbstractViewHelper {
 	protected function appendFirstUriPartIfValidDimension(&$path) {
 		$requestPath = ltrim($this->controllerContext->getRequest()->getHttpRequest()->getUri()->getPath(), '/');
 		$matches = [];
-		preg_match(\TYPO3\Neos\Routing\FrontendNodeRoutePartHandler::DIMENSION_REQUEST_PATH_MATCHER, $requestPath, $matches);
+		preg_match(\Neos\Neos\Routing\FrontendNodeRoutePartHandler::DIMENSION_REQUEST_PATH_MATCHER, $requestPath, $matches);
 		if (!isset($matches['firstUriPart']) && !isset($matches['dimensionPresetUriSegments'])) {
 			return;
 		}
