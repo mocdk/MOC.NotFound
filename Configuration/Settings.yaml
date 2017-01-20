@@ -5,10 +5,8 @@ Neos:
       exceptionHandler:
         renderingGroups:
           notFoundExceptions:
-            matchingStatusCodes:
-              - 404
-              - 410
+            matchingStatusCodes: [ 404, 410 ]
             options:
               templatePathAndFilename: 'resource://MOC.NotFound/Private/Templates/404.html'
               variables:
-                path: 404.html
+                path: '404.html' # skip suffix if unset
