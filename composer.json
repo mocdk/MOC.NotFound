@@ -1,21 +1,31 @@
 {
-	"name": "moc/notfound",
-	"type": "typo3-flow-package",
-	"description": "Neos CMS package that loads a normal editable page for displaying a 404 error",
-	"keywords": [ "404", "not found", "neos", "flow" ],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Aske Ertmann",
-			"email": "aske@ertmann.co"
-		}
-	],
-	"require": {
-		"typo3/neos": ">=2.0"
-	},
-	"autoload": {
-		"psr-0": {
-			"MOC\\NotFound": "Classes"
-		}
-	}
+    "name": "moc/notfound",
+    "type": "typo3-flow-package",
+    "description": "Neos CMS package that loads a normal editable page for displaying a 404 error",
+    "keywords": [
+        "404",
+        "not found",
+        "neos",
+        "flow"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aske Ertmann",
+            "email": "aske@ertmann.co"
+        }
+    ],
+    "require": {
+        "typo3/neos": ">=2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "MOC\\NotFound": "Classes"
+        }
+    },
+    "extra": {
+        "applied-flow-migrations": [
+            "TYPO3.FLOW3-201201261636"
+        ]
+    }
 }
