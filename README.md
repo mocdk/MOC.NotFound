@@ -11,13 +11,13 @@ Introduction
 
 Neos CMS package that loads a normal editable page for displaying a 404 error.
 
-Compatible with Neos 2.x+
+Compatible with Neos 3.*.
 
 Supports multiple content dimensions with URI segments and empty segments for default dimensions.
 
 Installation
 ------------
-```composer require "moc/notfound:~2.0"```
+```composer require "moc/notfound:^3.0"```
 
 Create a page with the URI segment "404" in the root of your site. If using content dimensions with URI segments,
 ensure a page exists in all contexts or through fallbacks.
@@ -25,7 +25,7 @@ ensure a page exists in all contexts or through fallbacks.
 Alternatively set the following configuration in ``Settings.yaml``:
 
 ```yaml
-TYPO3:
+Neos:
   Flow:
     error:
       exceptionHandler:

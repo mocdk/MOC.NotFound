@@ -1,11 +1,12 @@
-
 Neos:
   Flow:
     error:
       exceptionHandler:
         renderingGroups:
           notFoundExceptions:
-            matchingStatusCodes: [ 404, 410 ]
+            matchingStatusCodes:
+              - 404
+              - 410
             options:
               templatePathAndFilename: 'resource://MOC.NotFound/Private/Templates/404.html'
               variables:
