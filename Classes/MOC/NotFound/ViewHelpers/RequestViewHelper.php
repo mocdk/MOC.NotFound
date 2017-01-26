@@ -142,6 +142,7 @@ class RequestViewHelper extends AbstractViewHelper {
 				$uriSegment = array_shift($firstUriPartExploded);
 				$preset = $this->contentDimensionPresetSource->findPresetByUriSegment($dimensionName, $uriSegment);
 				if ($preset === null) {
+					$this->appendDefaultDimensionPresetUriSegments($dimensionPresets, $path);
 					return;
 				}
 			}
