@@ -75,7 +75,6 @@ class RequestViewHelper extends AbstractViewHelper
 
     /**
      * @param string $path
-     *
      * @return string
      * @throws \Exception
      */
@@ -109,7 +108,6 @@ class RequestViewHelper extends AbstractViewHelper
 
     /**
      * @param string $path
-     *
      * @return void
      */
     protected function appendFirstUriPartIfValidDimension(&$path)
