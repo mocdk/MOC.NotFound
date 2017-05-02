@@ -141,17 +141,32 @@ class RequestViewHelper extends AbstractViewHelper
             }
         } else {
             if (count($firstUriPartExploded) !== count($dimensionPresets)) {
+                $this->appendDefaultDimensionPresetUriSegments($dimensionPresets, $path);
                 return;
             }
             foreach ($dimensionPresets as $dimensionName => $dimensionPreset) {
                 $uriSegment = array_shift($firstUriPartExploded);
                 $preset = $this->contentDimensionPresetSource->findPresetByUriSegment($dimensionName, $uriSegment);
                 if ($preset === null) {
+                    $this->appendDefaultDimensionPresetUriSegments($dimensionPresets, $path);
                     return;
                 }
             }
         }
 
         $path = $matches['firstUriPart'] . '/' . $path;
+    }
+
+    /**
+     * @param array $dimensionPresets
+     * @param string $path
+     * @return void
+     */
+    protected function appendDefaultDimensionPresetUriSegments(array $dimensionPresets, &$path) {
+        $defaultDimensionPresetUriSegments = [];
+        foreach ($dimensionPresets as $dimensionName => $dimensionPreset) {
+            $defaultDimensionPresetUriSegments[] = $dimensionPreset['presets'][$dimensionPreset['defaultPreset']]['uriSegment'];
+        }
+        $path = implode('_', $defaultDimensionPresetUriSegments) . '/' . $path;
     }
 }
