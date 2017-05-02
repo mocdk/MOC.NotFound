@@ -156,7 +156,7 @@ class RequestViewHelper extends AbstractViewHelper {
 	 * @param string $path
 	 * @return void
 	 */
-	protected function appendDefaultDimensionPresetUriSegments($dimensionPresets, &$path) {
+	protected function appendDefaultDimensionPresetUriSegments(array $dimensionPresets, &$path) {
 		$defaultDimensionPresetUriSegments = [];
 		foreach ($dimensionPresets as $dimensionName => $dimensionPreset) {
 			$defaultDimensionPresetUriSegments[] = $dimensionPreset['presets'][$dimensionPreset['defaultPreset']]['uriSegment'];
