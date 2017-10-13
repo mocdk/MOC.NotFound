@@ -35,3 +35,5 @@ Neos:
               variables:
                 path: '404.html' # skip suffix if unset
 ```
+
+Note: If you override the configuration in a package's configuration instead of globally, you need to ensure that package is loaded after this package. To do so, add ``"moc/notfound": "*"`` to the package's ``require`` section in it's ``composer.json``.
