@@ -10,6 +10,7 @@ use Neos\Flow\Http\Response;
 use Neos\Flow\Http\Uri;
 use Neos\Flow\Mvc\ActionRequest;
 use Neos\Flow\Mvc\Dispatcher;
+use Neos\Flow\Mvc\Exception\NoMatchingRouteException;
 use Neos\Flow\Mvc\Routing\Dto\RouteContext;
 use Neos\Flow\Mvc\Routing\Dto\RouteParameters;
 use Neos\Flow\Mvc\Routing\Router;
@@ -89,7 +90,11 @@ class RequestViewHelper extends AbstractViewHelper
         $uri = rtrim($parentHttpRequest->getBaseUri(), '/') . '/' . $path;
         $httpRequest = Request::create(new Uri($uri));
         $routeContext = new RouteContext($httpRequest, RouteParameters::createEmpty());
-        $matchingRoute = $this->router->route($routeContext);
+        try {
+            $matchingRoute = $this->router->route($routeContext);
+        } catch (NoMatchingRouteException $exception) {
+            $matchingRoute = null;
+        }
         if (!$matchingRoute) {
             $exception = new \Exception(sprintf('Uri with path "%s" could not be found.', $uri), 1426446160);
             $exceptionHandler = set_exception_handler(null)[0];
