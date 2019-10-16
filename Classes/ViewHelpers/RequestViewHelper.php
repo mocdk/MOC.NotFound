@@ -75,13 +75,23 @@ class RequestViewHelper extends AbstractViewHelper
     {
         $this->router->setRoutesConfiguration($this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_ROUTES));
     }
+    
+    /**
+     * @return void
+     * @throws \Neos\FluidAdaptor\Core\ViewHelper\Exception
+     * @api
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('path', 'string', 'Path');
+    }
 
     /**
-     * @param string $path
      * @return string
      * @throws \Exception
      */
-    public function render($path = null)
+    public function render()
     {
         $this->appendFirstUriPartIfValidDimension($path);
         /** @var RequestHandler $activeRequestHandler */
