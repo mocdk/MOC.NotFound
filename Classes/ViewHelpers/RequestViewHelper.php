@@ -16,6 +16,7 @@ use Neos\Flow\Mvc\Routing\Dto\RouteParameters;
 use Neos\Flow\Mvc\Routing\Router;
 use Neos\Flow\Security\Context as SecurityContext;
 use Neos\FluidAdaptor\Core\ViewHelper\AbstractViewHelper;
+use Neos\FluidAdaptor\Core\ViewHelper\Exception as ViewHelperException;
 use Neos\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
 use Neos\Neos\Routing\FrontendNodeRoutePartHandler;
 
@@ -75,16 +76,16 @@ class RequestViewHelper extends AbstractViewHelper
     {
         $this->router->setRoutesConfiguration($this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_ROUTES));
     }
-    
+
     /**
      * @return void
-     * @throws \Neos\FluidAdaptor\Core\ViewHelper\Exception
+     * @throws ViewHelperException
      * @api
      */
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument('path', 'string', 'Path');
+        $this->registerArgument('path', 'string', 'Path', false, '404');
     }
 
     /**
@@ -93,6 +94,7 @@ class RequestViewHelper extends AbstractViewHelper
      */
     public function render()
     {
+        $path = $this->arguments['path'];
         $this->appendFirstUriPartIfValidDimension($path);
         /** @var RequestHandler $activeRequestHandler */
         $activeRequestHandler = $this->bootstrap->getActiveRequestHandler();
