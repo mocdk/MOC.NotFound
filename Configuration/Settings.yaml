@@ -1,12 +1,11 @@
 Neos:
-  Flow:
-    error:
-      exceptionHandler:
-        renderingGroups:
-          notFoundExceptions:
-            matchingStatusCodes: [ 404, 410 ]
-            options:
-              viewClassName: Neos\FluidAdaptor\View\TemplateView
-              templatePathAndFilename: 'resource://MOC.NotFound/Private/Templates/404.html'
-              variables:
-                path: '404.html' # skip suffix if unset
+  Fusion:
+    defaultContext:
+      NotFound.Context: MOC\NotFound\Fusion\Eel\Helper\ContextHelper
+  Neos:
+    fusion:
+      autoInclude:
+        MOC.NotFound: true
+MOC:
+  NotFound:
+    uriPathSegment: 404
