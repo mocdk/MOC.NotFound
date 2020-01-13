@@ -29,7 +29,7 @@ class ContextHelper implements ProtectedContextAwareInterface
 
         $uriSegments = $this->getUriSegments($requestUriPath);
         $dimensionValues = $this->getDimensionValuesForUriSegments($uriSegments);
-        if (!$dimensionValues) {
+        if (empty($dimensionValues)) {
             $dimensionValues = $this->getDefaultDimensionValues();
         }
 
@@ -93,7 +93,7 @@ class ContextHelper implements ProtectedContextAwareInterface
         return explode('_', $pathParts[0]);
     }
 
-    function allowsCallOfMethod($methodName)
+    public function allowsCallOfMethod($methodName)
     {
         return true;
     }
