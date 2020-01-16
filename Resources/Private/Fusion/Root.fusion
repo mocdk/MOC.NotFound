@@ -1,0 +1,22 @@
+prototype(MOC.NotFound:NotFoundDocument) < prototype(Neos.Fusion:Value) {
+    uriPathSegment =  ${Configuration.setting('MOC.NotFound.uriPathSegment')}
+    context = ${NotFound.Context.ofRequestUriPath(this.requestUriPath)}
+
+    value = ${q(site).context(this.context).children('[instanceof Neos.Neos:Document]').filter('[uriPathSegment="' + this.uriPathSegment + '"]').get(0)}
+}
+
+error {
+    @context.notfoundDocument = MOC.NotFound:NotFoundDocument {
+        requestUriPath = ${request.httpRequest.uri.path}
+    }
+
+    4xx {
+        @position = 'start'
+        condition = ${statusCode >= 400 && statusCode < 500 && notfoundDocument}
+        renderer = Neos.Fusion:Renderer {
+            @context.node = ${notfoundDocument}
+            @context.documentNode = ${notfoundDocument}
+            renderPath = '/root'
+        }
+    }
+}
